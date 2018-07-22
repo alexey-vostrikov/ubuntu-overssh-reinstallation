@@ -35,7 +35,7 @@ This script will be help you to create config and preseed file. `config` and `pr
 ./setup-iso.sh
 ```
 
-## Make Iso
+## Update GRUB
 
 ```bash
 ./setup-update-grub.sh
