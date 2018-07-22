@@ -41,7 +41,7 @@ sed -i 's/timeout 0/timeout 300/g' $ISO_DIR/prompt.cfg
 sed -i 's/timeout 0/timeout 300/g' $ISO_DIR/isolinux.cfg
 
 # update kernel options
-sed -i "s#append #append priority=critical auto=true preseed/url='$PRESEED_URL' netcfg/hostname=$HOSTNAME interface=$INTERFACE_DEV netcfg/disable_dhcp=true netcfg/get_ipaddress=$INTERFACE_IP netcfg/get_netmask=$INTERFACE_NETMASK netcfg/get_gateway=$INTERFACE_GATEWAY netcfg/get_nameservers=$INTERFACE_NAMESERVER #g" $ISO_DIR/txt.cfg
+sed -i "s#append #append priority=critical auto=true preseed/url=$PRESEED_URL netcfg/hostname=$HOSTNAME interface=$INTERFACE_DEV netcfg/disable_dhcp=true netcfg/get_ipaddress=$INTERFACE_IP netcfg/get_netmask=$INTERFACE_NETMASK netcfg/get_gateway=$INTERFACE_GATEWAY netcfg/get_nameservers=$INTERFACE_NAMESERVER #g" $ISO_DIR/txt.cfg
 
 # create iso
 mkisofs -D -r -V UBUNTU_SERVER -cache-inodes -J -l -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o $ISO_DEST $ISO_DIR
