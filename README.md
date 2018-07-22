@@ -5,6 +5,7 @@
 ![MIT License](https://img.shields.io/badge/license-MIT-ff9900.svg "MIT License")
 
 If your ISP/Datacenter dosn't provide standard or trusted iso for your server. Get ugly server from it with installed version of Ubuntu server.
+Or your data is so important and you [Full System Encryption](https://help.ubuntu.com/community/ManualFullSystemEncryption) method for encrypt all data stored on your vps or server. If ISP just clone your vps harddrive? If just change raid HDD drive on dedicate server. How do you deal with it? Simple just partion encrypted drives and enjoy your secure server.
 
 I have same situation installed ubuntu has bad partition table or huge list of stupid package installed. Datacenter network is my primary concern or it's really cheap price but administrators dosn't care. What should i do? That's my way to solve this issue easily.
 
@@ -14,9 +15,9 @@ Create your own netiso and reinstall it over ssh. You can partion yor server as 
 
 It's simple, create modified iso based on your network and preseed url file and continue installation over ssh.
 
-I use [mini.iso](https://help.ubuntu.com/community/Installation/MinimalCD) because it's small and get most packages from ubuntu repository so you server after installation is fully updated.
+I use [Minimal CD](https://help.ubuntu.com/community/Installation/MinimalCD) because it's small and get most packages from ubuntu repository so you server after installation is fully updated.
 
-## Wizart
+## Wizard
 
 Download this repo and start wizard.
 
