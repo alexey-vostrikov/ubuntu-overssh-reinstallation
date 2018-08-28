@@ -17,27 +17,59 @@ It's simple, create modified iso based on your network and preseed url file and 
 
 I use [Minimal CD](https://help.ubuntu.com/community/Installation/MinimalCD) because it's small and get most packages from ubuntu repository so you server after installation is fully updated.
 
-## Wizard
+## 1. Wizard
 
-Download this repo and start wizard.
+### 1.1 Download this repo and extracet it.
 
 ```bash
 wget https://gitlab.com/AASAAM/ubuntu-overssh-reinstallation/-/archive/master/ubuntu-overssh-reinstallation-master.tar.gz
 tar -xf ubuntu-overssh-reinstallation-master.tar.gz
 cd ubuntu-overssh-reinstallation-master/
+```
+
+### 1.2 Preseed Server PHP script (optional)
+
+Upload `preseed-server/*` to webroot of desire webserver and set `PRESEED_SERVER` env variable.
+With this simple variable preseed file will be uploaded to server and checked via chechsum for validation.
+
+```bash
+export PRESEED_SERVER=http://ubuntu-preseed.example.tld
+```
+
+### 1.3 Run wizard
+
+```bash
 ./wizard.sh
 ```
 
-This script will be help you to create config and preseed file. `config` and `preseed.cfg` will be generate on `tmp`.
+This script will be help you to create config and preseed file. `config` and `preseed.cfg` will be generate on `tmp` directory.
 
-## Make ISO
+## 2. Make ISO
+
+This script will be create your modified iso file based on network and preseed file.
 
 ```bash
 ./setup-iso.sh
 ```
 
-## Update GRUB
+## 3. Update GRUB
+
+Your iso is ready and you can update grub for load the iso for first priority.
 
 ```bash
 ./setup-update-grub.sh
 ```
+
+## 4. Reboot and wait for it
+
+Reboot the server.
+
+```bash
+reboot
+```
+
+Wait to server reset, may take a few minites depend on your server manufacturer. 
+
+## 5. Continue installation 
+
+You can ssh login for installation, example: `installer@192.168.1.1`
