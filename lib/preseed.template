@@ -16,7 +16,6 @@ d-i netcfg/get_gateway string INTERFACE_GATEWAY
 d-i netcfg/get_nameservers string INTERFACE_NAMESERVER
 d-i netcfg/confirm_static boolean true
 d-i netcfg/get_hostname string HOSTNAME
-d-i netcfg/do_not_use_netplan boolean true
 d-i netcfg/hostname string HOSTNAME
 d-i passwd/root-login boolean true
 d-i mirror/http/proxy string MIRROR_HTTP_PROXY
