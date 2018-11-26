@@ -16,6 +16,7 @@ d-i netcfg/get_gateway string INTERFACE_GATEWAY
 d-i netcfg/get_nameservers string INTERFACE_NAMESERVER
 d-i netcfg/confirm_static boolean true
 d-i netcfg/get_hostname string HOSTNAME
+d-i netcfg/do_not_use_netplan boolean true
 d-i netcfg/hostname string HOSTNAME
 d-i passwd/root-login boolean true
 d-i mirror/http/proxy string MIRROR_HTTP_PROXY
@@ -28,8 +29,8 @@ d-i anna/choose_modules string network-console
 d-i network-console/password password INSTALLERPASSWORD
 d-i network-console/password-again password INSTALLERPASSWORD
 tasksel tasksel/first multiselect ssh-server
-d-i pkgsel/update-policy select none
-d-i pkgsel/include string openssh-server
+d-i pkgsel/update-policy select unattended-upgrades
+d-i pkgsel/include string openssh-server pollinate haveged
 d-i preseed/late_command string \
   in-target mkdir -m 700 /root/.ssh ; \
   in-target touch /root/.ssh/authorized_keys ; \
@@ -37,4 +38,7 @@ d-i preseed/late_command string \
   in-target sed -i '/PermitRootLogin/c\PermitRootLogin yes' /etc/ssh/sshd_config ; \
   in-target sed -i '/PasswordAuthentication/c\PasswordAuthentication no' /etc/ssh/sshd_config ; \
   in-target /bin/sh -c "echo 'PUBLICKEY' > /root/.ssh/authorized_keys" ; \
-  in-target chmod 600 /root/.ssh/authorized_keys
+  in-target chmod 600 /root/.ssh/authorized_keys ; \
+  in-target rm /etc/ssh/ssh_host_*key* ; \
+  in-target ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key ; \
+  in-target ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key
