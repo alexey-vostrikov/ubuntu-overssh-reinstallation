@@ -38,7 +38,4 @@ d-i preseed/late_command string \
   in-target sed -i '/PermitRootLogin/c\PermitRootLogin yes' /etc/ssh/sshd_config ; \
   in-target sed -i '/PasswordAuthentication/c\PasswordAuthentication no' /etc/ssh/sshd_config ; \
   in-target /bin/sh -c "echo 'PUBLICKEY' > /root/.ssh/authorized_keys" ; \
-  in-target chmod 600 /root/.ssh/authorized_keys ; \
-  in-target rm /etc/ssh/ssh_host_*key* ; \
-  in-target ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key ; \
-  in-target ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key
+  in-target chmod 600 /root/.ssh/authorized_keys
