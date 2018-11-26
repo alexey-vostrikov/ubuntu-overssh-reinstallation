@@ -28,7 +28,7 @@ d-i anna/choose_modules string network-console
 d-i network-console/password password INSTALLERPASSWORD
 d-i network-console/password-again password INSTALLERPASSWORD
 tasksel tasksel/first multiselect ssh-server
-d-i pkgsel/update-policy select unattended-upgrades
+d-i pkgsel/update-policy select none
 d-i pkgsel/include string openssh-server pollinate haveged
 d-i preseed/late_command string \
   in-target mkdir -m 700 /home/INITUSERNAME/.ssh ; \
@@ -36,6 +36,6 @@ d-i preseed/late_command string \
   in-target sed -i '/Port/c\Port SSHPORT' /etc/ssh/sshd_config ; \
   in-target sed -i '/PasswordAuthentication/c\PasswordAuthentication no' /etc/ssh/sshd_config ; \
   in-target /bin/sh -c "echo 'PUBLICKEY' > /home/INITUSERNAME/.ssh/authorized_keys" ; \
-  in-target chown INITUSERNAME:INITUSERNAME /home/INITUSERNAME/.ssh ; \
   in-target chmod 700 /home/INITUSERNAME/.ssh ; \
-  in-target chmod 600 /home/INITUSERNAME/.ssh/authorized_keys
+  in-target chmod 600 /home/INITUSERNAME/.ssh/authorized_keys ; \
+  in-target chown INITUSERNAME:INITUSERNAME /home/INITUSERNAME/.ssh -R

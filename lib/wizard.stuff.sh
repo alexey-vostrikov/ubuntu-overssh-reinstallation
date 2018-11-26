@@ -9,7 +9,7 @@ if [ ! -f $PROJECTPATH/tmp/INITUSERPASSWORD.txt ]; then
 fi
 
 if [ ! -f $PROJECTPATH/tmp/RANDOM_INITUSERPOSTFIX.txt ]; then
-  head /dev/urandom | tr -dc A-z0-9 | head -c 16 > $PROJECTPATH/tmp/RANDOM_INITUSERPOSTFIX.txt
+  head /dev/urandom | tr -dc a-z0-9 | head -c 5 > $PROJECTPATH/tmp/RANDOM_INITUSERPOSTFIX.txt
 fi
 
 DEFAULT_INSTALLERPASSWORD=$(cat $PROJECTPATH/tmp/INSTALLERPASSWORD.txt)
