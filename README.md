@@ -32,8 +32,16 @@ cd ubuntu-overssh-reinstallation-master/
 Upload `preseed-server/*` to webroot of desire webserver and set `PRESEED_SERVER` env variable.
 With this simple variable preseed file will be uploaded to server and checked via chechsum for validation.
 
+In `index.php` file you can change http auth user and password.
+
 ```bash
 export PRESEED_SERVER=http://ubuntu-preseed.example.tld
+```
+
+Or via http auth config:
+
+```bash
+export PRESEED_SERVER=http://preseedusr:preseedpass@ubuntu-preseed.example.tld
 ```
 
 ### 1.3 Run wizard
@@ -68,8 +76,8 @@ Reboot the server.
 reboot
 ```
 
-Wait to server reset, may take a few minites depend on your server manufacturer. 
+Wait to server reset, may take a few minites depend on your server manufacturer.
 
-## 5. Continue installation 
+## 5. Continue installation
 
 You can ssh login for installation, example: `installer@192.168.1.1`

@@ -41,7 +41,8 @@ if [ -z "$BOOTABLEGRUBNAME" ]; then
   exit 1
 fi
 
-GRUBBACKUPFILE=$PROJECTPATH/grub.backup
+BACKUPSUFFIX=`date +"%Y%m%d_%H%M%S"`
+GRUBBACKUPFILE="$PROJECTPATH/grub.backup_$BACKUPSUFFIX"
 if [ ! -f $GRUBBACKUPFILE ]; then
   cp /etc/default/grub $GRUBBACKUPFILE
 fi
