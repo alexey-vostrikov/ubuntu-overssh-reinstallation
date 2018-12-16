@@ -11,7 +11,7 @@ I have same situation installed ubuntu has bad partition table or huge list of s
 
 Ask them to install ubuntu server what ever is it. re install it over ssh, repartition and get clean installation of ubuntu server.
 
-Create your own netiso and reinstall it over ssh. You can partion yor server as you desire. And set more configuration using [ubuntu preseed](https://help.ubuntu.com/lts/installation-guide/armhf/apbs02.html) just over ssh; no kvm/ipmi/vnc required.
+Create your own netiso and reinstall it over ssh. You can partion yor server as you desire. And set more configuration using [ubuntu preseed](https://help.ubuntu.com/lts/installation-guide/amd64/apbs02.html) just over ssh; no kvm/ipmi/vnc required.
 
 It's simple, create modified iso based on your network and preseed url file and continue installation over ssh.
 
