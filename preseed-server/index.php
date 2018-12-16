@@ -2,7 +2,7 @@
 // define('TMP_DIR', sys_get_temp_dir());
 define('TMP_DIR', __DIR__ .  DIRECTORY_SEPARATOR . 'tmp');
 define('TMP_FILE_PATTERN', 'preseed_%s.bin');
-// define('HTTP_AUTH_USER', ''); empty will be ignore http auth
+// define('HTTP_AUTH_USER', ''); // empty will be ignore http auth
 define('HTTP_AUTH_USER', 'preseedusr');
 define('HTTP_AUTH_PASS', 'preseedpass');
 
