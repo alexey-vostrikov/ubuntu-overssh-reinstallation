@@ -32,8 +32,19 @@ do
   fi
 done
 
-INTERFACE_DEV=$(whiptail --title "$PROG_TITLE" --radiolist  "Select main interface for server:" $SIZE_X $SIZE_Y $SIZE_LS $ENTRIES_OPTION 3>&1 1>&2 2>&3)
+if [ -z "$INTERFACE_DEV" ]; then
+  INTERFACE_DEV=$(whiptail --title "$PROG_TITLE" --radiolist  "Select main interface for server:" $SIZE_X $SIZE_Y $SIZE_LS $ENTRIES_OPTION 3>&1 1>&2 2>&3)
+fi
 
-INTERFACE_IP=$(ifconfig $INTERFACE_DEV | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')
-INTERFACE_NETMASK=$(ifconfig $INTERFACE_DEV | awk '/netmask/{print $4}')
-INTERFACE_GATEWAY=$(route -n | grep $INTERFACE_DEV | grep '^0.0.0.0' | awk '{print $2}')
+if [ -z "$INTERFACE_IP" ]; then
+  INTERFACE_IP=$(ifconfig $INTERFACE_DEV | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')
+fi
+
+if [ -z "$INTERFACE_NETMASK" ]; then
+  INTERFACE_NETMASK=$(ifconfig $INTERFACE_DEV | awk '/netmask/{print $4}')
+fi
+
+if [ -z "$INTERFACE_GATEWAY" ]; then
+  INTERFACE_GATEWAY=$(route -n | grep $INTERFACE_DEV | grep '^0.0.0.0' | awk '{print $2}')
+fi
+
