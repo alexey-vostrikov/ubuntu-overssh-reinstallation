@@ -32,6 +32,10 @@ do
   fi
 done
 
+if [ -z "$INTERFACE_NAMESERVER" ]; then
+  INTERFACE_NAMESERVER=8.8.8.8
+fi
+
 if [ -z "$INTERFACE_DEV" ]; then
   INTERFACE_DEV=$(whiptail --title "$PROG_TITLE" --radiolist  "Select main interface for server:" $SIZE_X $SIZE_Y $SIZE_LS $ENTRIES_OPTION 3>&1 1>&2 2>&3)
 fi
