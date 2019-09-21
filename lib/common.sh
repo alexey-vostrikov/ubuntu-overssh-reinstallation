@@ -2,8 +2,8 @@
 
 eval `resize`
 
-UBUNTUISO_BIONIC='http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-amd64/current/images/netboot/mini.iso'
-UBUNTUISO_XENIAL='http://archive.ubuntu.com/ubuntu/dists/xenial/main/installer-amd64/current/images/netboot/mini.iso'
+UBUNTUISO_BIONIC='http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/mini.iso'
+UBUNTUISO_XENIAL='http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/mini.iso'
 PROG_TITLE="AASAAM Ubuntu overssh installation"
 URL_REGEX='(http)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 SIZE_X=$(( $LINES - 12 ))
